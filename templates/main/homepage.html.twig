@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}}: find your ship!{% endblock %}
+
+{% block body %}
+<h1>Hello Symfony</h1>
+<div>{{numberOfStarships|length }} ships!</div>
+
+<div>
+    <h2>Ship</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <a href="{{path('app_starship_show', {id:starship.id})}}">{{starship.name}}</a>
+        </tr>
+        <tr>
+            <th>Class</th>
+            <td>{{starship.class}}</td>
+        </tr>
+        <tr>
+            <th>Captain</th>
+            <td>{{starship.captain}}</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>{{starship.status}}</td>
+        </tr>
+    </table>
+</div>
+
+{% endblock %}
