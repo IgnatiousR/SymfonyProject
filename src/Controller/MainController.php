@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 class MainController extends AbstractController 
 {
-    #[Route('/')]
+    #[Route('/', 'app_main_homepage')]
     
     public function homepage(StarshipRepository $starshipRepository): Response
     {
@@ -16,6 +16,6 @@ class MainController extends AbstractController
         $starship =  $ships[array_rand($ships)];
         //$starshipCount = count($ships);
         //return new Response('<strong>Hello Symfony</strong>');
-        return $this->render('main/homepage.html.twig', ['numberOfStarships' => $ships, 'starship'=> $starship]);
+        return $this->render('main/homepage.html.twig', ['ships' => $ships, 'myShip'=> $starship]);
     }
 }
